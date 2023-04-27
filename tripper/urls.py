@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from news.views import get_recommendation, get_input_form_page
+from django.conf import settings
+from django.conf.urls.static import static
+from news.views import get_recommendation, get_input_form_page,detail_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_input_form_page),
+    path('detail/<int:id>/',detail_page,name="detail_page"),
     path('get-recommendation', get_recommendation)
 ]
+urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

@@ -66,6 +66,9 @@
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         "
       >
+      {% if query%}
+      <p> {{query}}</p>
+      {%endif%}
         {% for news in newss %}
 
         <div class="card-deck" style="display: flex; justify-content: stretch">

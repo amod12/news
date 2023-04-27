@@ -75,6 +75,7 @@ class Matcher:
 
 
         sim = cosine_similarity(tfidf_mat.toarray(), tfidf_mat.toarray())
+       
 
 
         sim_df = pd.DataFrame(data=sim, index=new_df["title"], columns=new_df["title"])
@@ -86,4 +87,4 @@ class Matcher:
 
         return self.match_recommendation(indices=ind, similarity=sim)
 
-# print(match_recommendation("fun_park"))
+# print(match_recommendation("war"))

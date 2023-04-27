@@ -123,24 +123,39 @@
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         "
       >
-        {% for new in news %}
 
         <div class="card-deck" style="display: flex; justify-content: stretch">
-          <img
-            src="{{new.image_url}}"
+          {% if news.image %}<img
+            src="{{news.image.url}}"
             class="card-img-top mt-3 w-50"
             style="max-width: 250px; max-height: 200px"
           />
-          <a href="{% url 'detail_page' new.id %}">
+
+          {% endif %}
           <div class="card-body w-50">
-            <h2 class="card-title">{{new.name}}</h2>
-            <p class="card-text">{{new.title}}</p>
+            <h2 class="card-title">{{news.name}}</h2>
+            <p class="card-text">{{news.title}}</p>
           </div>
-        </a>
+        </div>
+
+      </div>
+    </div>
+    <div class="Recommendation News">
+        {% for news in recommended_news %}
+
+        <div class="card-deck" style="display: flex; justify-content: stretch">
+          <img
+            src="{{news.image_url}}"
+            class="card-img-top mt-3 w-50"
+            style="max-width: 250px; max-height: 200px"
+          />
+          <div class="card-body w-50">
+            <h2 class="card-title">{{news.name}}</h2>
+            <p class="card-text">{{news.description}}</p>
+          </div>
         </div>
 
  {% endfor %}
-      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
