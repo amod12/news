@@ -21,7 +21,7 @@ from news.views import get_recommendation, get_input_form_page,detail_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_input_form_page),
+    path('', get_input_form_page, name="home" ),
     path('detail/<int:id>/',detail_page,name="detail_page"),
     path('get-recommendation', get_recommendation)
 ]

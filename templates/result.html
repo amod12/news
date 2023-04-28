@@ -31,6 +31,58 @@
     </style>
   </head>
   <body>
+    <header style="background-color: black; display: flex; align-items: center; width: 100%;">
+      <nav class="container" style="display: flex; justify-content: space-between; color: white; align-items: center; flex-wrap: wrap;">
+        <h2><a href="{% url 'home' %}" style="text-decoration: none; color: white;">News site</a></h2>
+        <h2>
+          <div
+          class="main-title"
+          style="
+            text-shadow: 0 9px 25px rgba(0, 0, 0, 0.15);
+            line-height: 1.05;
+            margin-bottom: 24px;
+            left: 280px;
+            top: 120px;
+          "
+        >
+        </div>
+    
+        <form
+          action="/get-recommendation"
+          method="post"
+          style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"
+        >
+          {% csrf_token %}
+          <input type="text"
+            name="user_description"
+            placeholder="Search news here"
+          
+            maxlength="500"
+            style="
+              opacity: 0.8;
+              width: 300px;
+              height: 35px;
+              padding: 10px 20px;
+              box-sizing: border-box;
+              border: 2px solid #ccc;
+              border-radius: 4px;
+              background-color: aliceblue;
+              font-size: 16px;
+              resize: none;
+            "
+          ></input
+          ><br />
+          <button
+          class="btn btn-lg btn-success"
+          style="height: 35px; padding: 10px; display: flex; align-items: center;"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+        </h2>
+      </nav>
+    </header>
     <div
       style="
         font-size: 44px;
@@ -71,22 +123,31 @@
       {%endif%}
         {% for news in newss %}
 
-        <div class="card-deck" style="display: flex; justify-content: stretch">
+        <div class="card-deck"  style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="{% url 'detail_page' news.id %}">
           <img
             src="{{news.image_url}}"
             class="card-img-top mt-3 w-50"
             style="max-width: 250px; max-height: 200px"
           />
-          <div class="card-body w-50">
-            <h2 class="card-title">{{news.name}}</h2>
+          </a>
+          <a href="{% url 'detail_page' news.id %}" style="text-decoration: none; color: black;">
+          <div class="card-body" style="width: 500px;">
+            <!-- <h2 class="card-title">{{news.name}}</h2> -->
+            <h3 class="card-text">{{news.title}}</h3>
             <p class="card-text">{{news.description}}</p>
           </div>
+          </a>
         </div>
 
  {% endfor %}
       </div>
     </div>
-
+    <footer style="background-color: green; display: flex; align-items: center; color:  white; justify-content: center; font-weight: bold; height: 80px;">
+      <p>
+        Lorem, ipsum  tempora nostrum impedit voluptatem harum, animi non. Copyright reserved: Yarki
+      </p>
+    </footer>
    
     <!-- Replace the value of the key parameter with your own API key. -->
     <style>
@@ -186,10 +247,6 @@
       }
     </script>
 
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxVti-YamqN4LizQhbZEoQeIYFhe__uZo&callback=initMap"
-    ></script>
+    
   </body>
 </html>

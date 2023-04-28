@@ -1,7 +1,7 @@
 import json
 
 from csp.decorators import csp_exempt
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.db.models.query import QuerySet
 
@@ -49,7 +49,7 @@ def get_input_form_page(request):
         'news': news,
     })
 def detail_page(request,id=None):
-    news=News.objects.get(id=id)
+    news=get_object_or_404(News,id=id)
     recommended= get_matched_news(news.title)
     context={
         'news':news,
