@@ -15,6 +15,11 @@
 
     <title>Results</title>
     <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
       .card-deck {
         border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -110,7 +115,7 @@
     -->
     <div class="vstack">
       <div
-        class="card mb-3 w-75 p-3"
+        class="card mb-3 w-75"
         style="
           margin: 0 auto;
           border-radius: 8px;
@@ -126,9 +131,9 @@
         <div class="card-deck"  style="display: flex; gap: 20px; flex-wrap: wrap;">
           <a href="{% url 'detail_page' news.id %}">
           <img
-            src="{{news.image_url}}"
-            class="card-img-top mt-3 w-50"
-            style="max-width: 250px; max-height: 200px"
+          src="{{news.image.url}}"
+          class="card-img-top mt-3 w-50"
+            style="max-width: 1000px; max-height: 200px"
           />
           </a>
           <a href="{% url 'detail_page' news.id %}" style="text-decoration: none; color: black;">
@@ -143,7 +148,7 @@
  {% endfor %}
       </div>
     </div>
-    <footer style="background-color: green; display: flex; align-items: center; color:  white; justify-content: center; font-weight: bold; height: 80px;">
+    <footer style="background-color: black; display: flex; align-items: center; color:  white; justify-content: center; font-weight: bold; height: 80px;">
       <p>
         Lorem, ipsum  tempora nostrum impedit voluptatem harum, animi non. Copyright reserved: Yarki
       </p>

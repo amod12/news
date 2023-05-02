@@ -13,7 +13,13 @@
       crossorigin="anonymous"
     />
 
-    
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
 
     <header style="background-color: black; display: flex; align-items: center; width: 100%;">
@@ -88,7 +94,7 @@
         <div class="card-deck" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
           <a href="{% url 'detail_page' new.id %}">
           <img
-            src="{{new.image_url}}"
+            src="{{new.image.url}}"
             class="card-img-top"
             style="max-width: 250px; max-height: 200px"
           />

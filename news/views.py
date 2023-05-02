@@ -20,11 +20,10 @@ def get_matched_news(description: str) -> QuerySet[News]:
     news = []
     if matched_new_ids:
         for news_id in matched_new_ids:
-            print('@@')
             if news_id:
                 new = News.objects.get(id=news_id)
                 news.append(new)
-    return news[:3]
+    return news[:4]
 
 @csp_exempt
 def get_recommendation(request):
@@ -48,6 +47,7 @@ def get_input_form_page(request):
         'foo': 'bar',
         'news': news,
     })
+    
 def detail_page(request,id=None):
     news=get_object_or_404(News,id=id)
     recommended= get_matched_news(news.title)
@@ -56,3 +56,6 @@ def detail_page(request,id=None):
         'recommended_news':recommended
     }
     return render(request,'details.html',context)
+
+def base(request):
+    return render(request,'base.html')

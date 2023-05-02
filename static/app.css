@@ -1,0 +1,107 @@
+/* Global styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Header styles */
+header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h2 a {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  opacity: 0.8;
+  width: 300px;
+  height: 35px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: aliceblue;
+  font-size: 16px;
+  resize: none;
+}
+
+button[type="submit"] {
+  height: 35px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Card styles */
+.card {
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.card-deck {
+  display: flex;
+  justify-content: stretch;
+}
+
+.card-img-top {
+  max-width: 250px;
+  max-height: 200px;
+}
+
+.card-body {
+  width: 50%;
+}
+
+.card-title {
+  color: green;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+/* Recommendation styles */
+.Recommendation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Footer styles */
+footer {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  font-weight: bold;
+  height: 80px;
+}
