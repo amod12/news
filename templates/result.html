@@ -79,7 +79,7 @@
           ><br />
           <button
           class="btn btn-lg btn-success"
-          style="height: 35px; padding: 10px; display: flex; align-items: center;"
+          style="height: 35px; padding: 10px; display: flex; align-items: center; margin-left: 10px;"
             type="submit"
           >
             Submit
@@ -118,13 +118,12 @@
         class="card mb-3 w-75"
         style="
           margin: 0 auto;
-          border-radius: 8px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          border: none;
+          
         "
       >
       {% if query%}
-      <p> {{query}}</p>
+      <h3> {{query}}</h3>
       {%endif%}
         {% for news in newss %}
 
