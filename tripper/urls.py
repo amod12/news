@@ -17,14 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from news.views import get_recommendation, get_input_form_page,detail_page
+from news.views import get_recommendation, get_input_form_page,detail_page, base
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_input_form_page, name="home" ),
+    path('', get_input_form_page, name="home" ), 
     path('detail/<int:id>/',detail_page,name="detail_page"),
+    path('base/',base,name="base"),
     path('get-recommendation', get_recommendation)
-]
+] 
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

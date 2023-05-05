@@ -7,8 +7,6 @@ from django.db.models.query import QuerySet
 
 
 from news.models import News
-# from placess.trip_calculator import get_iterinary, process_iterinary
-# from places.matcher import match_recommendation
 from news.matcher import Matcher
 
 
@@ -20,11 +18,10 @@ def get_matched_news(description: str) -> QuerySet[News]:
     news = []
     if matched_new_ids:
         for news_id in matched_new_ids:
-            print('@@')
             if news_id:
                 new = News.objects.get(id=news_id)
                 news.append(new)
-    return news[:3]
+    return news[:4]
 
 @csp_exempt
 def get_recommendation(request):
@@ -42,12 +39,17 @@ def get_recommendation(request):
 
 @csp_exempt 
 def get_input_form_page(request):
-    news=News.objects.all()
+    news=News.objects.all().order_by('-add_time',)
+    print(type(news))
     # print(news)
     return render(request, 'input_form.html', {
         'foo': 'bar',
         'news': news,
     })
+    
+    
+
+@csp_exempt 
 def detail_page(request,id=None):
     news=get_object_or_404(News,id=id)
     recommended= get_matched_news(news.title)
@@ -56,3 +58,8 @@ def detail_page(request,id=None):
         'recommended_news':recommended
     }
     return render(request,'details.html',context)
+
+@csp_exempt 
+def base(request):
+    return render(request,'abc.html')
+

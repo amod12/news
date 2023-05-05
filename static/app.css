@@ -1,0 +1,120 @@
+/* Global styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Header styles */
+header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  color: white;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 80px;
+  
+}
+
+h2 a {
+  text-decoration: none;
+  color: white;
+}
+.for-margin
+{
+  margin: 0 190px;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 35px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: aliceblue;
+  font-size: 16px;
+  resize: none;
+}
+
+form .btn {
+  cursor: pointer !important;
+  background-color: #198754;
+  border: none;
+  border-radius: 4px;
+  height: 35px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* vstack styles */
+main
+{
+  display: flex;
+  justify-content: space-around !important;
+  padding: 40px;
+}
+main .container
+{
+  display: flex;
+}
+main .vstack
+{
+  width: 800px;
+}
+main .container .vstack .news-detail
+{
+  width: 65%;
+}
+
+/* Recommendation styles */
+.Recommendation
+{
+  width: 400px;
+  overflow: hidden;
+}
+main .Recommendation h3
+{
+  border-bottom: 3px solid black;
+}
+main .Recommendation a
+{
+  display: flex;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 20px;
+}
+main .Recommendation a p
+{
+  margin-left: 20px;
+}
+/* Footer styles */
+footer {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  font-weight: bold;
+  height: 80px;
+}
