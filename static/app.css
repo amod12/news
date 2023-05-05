@@ -77,12 +77,21 @@ main .container
 {
   display: flex;
 }
+main .vstack
+{
+  width: 800px;
+}
 main .container .vstack .news-detail
 {
   width: 65%;
 }
 
 /* Recommendation styles */
+.Recommendation
+{
+  width: 400px;
+  overflow: hidden;
+}
 main .Recommendation h3
 {
   border-bottom: 3px solid black;
@@ -94,6 +103,10 @@ main .Recommendation a
   text-decoration: none;
   color: black;
   margin-bottom: 20px;
+}
+main .Recommendation a p
+{
+  margin-left: 20px;
 }
 /* Footer styles */
 footer {
