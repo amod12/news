@@ -11,4 +11,4 @@ class News(models.Model):
 
 
     def __str__(self):
-        return self.title + ' -- ' + str(self.id)
+        return f'{self.title}   -- {self.id}'

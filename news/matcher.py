@@ -19,13 +19,17 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 class Matcher:
 
-    def match_recommendation(self, indices, similarity):
+    def match_recommendation(self, indices, similarity, threshold=0.1):
         index = indices.index("news_id")
         sim_p = list(enumerate(similarity[index]))
-        p_list = sorted(sim_p, key=lambda x: x[1], reverse=True)
-        p_id = list(p_list[1:])
+        p_list = sorted(sim_p, key=lambda x : x[1], reverse=True)
+        print('@@@@@')
+        print(p_list)
+
+        p_id = [x for x in p_list[1:] if x[1] > 0.01]  # Remove less similar news
+        print('@@@@@')
+        print(p_id)
         plc_lst = [x[0] for x in p_id]
-        # titles = [indices[x] for x in plc_lst]
         plc_ids = [indices[x] for x in plc_lst]
         return plc_ids
 
@@ -75,8 +79,6 @@ class Matcher:
 
 
         sim = cosine_similarity(tfidf_mat.toarray(), tfidf_mat.toarray())
-       
-
 
         sim_df = pd.DataFrame(data=sim, index=new_df["title"], columns=new_df["title"])
 
@@ -85,6 +87,6 @@ class Matcher:
 
         ind = indices.tolist()
 
-        return self.match_recommendation(indices=ind, similarity=sim)
+        return self.match_recommendation(indices=ind, similarity=sim, threshold=0.5)
 
 
