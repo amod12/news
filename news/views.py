@@ -30,7 +30,7 @@ def get_recommendation(request):
     
     news=''
     query=user_description
-    if len(user_description) > 1:
+    if len(user_description) > 4:
         news = get_matched_news(user_description)
         print(len(news))
 
